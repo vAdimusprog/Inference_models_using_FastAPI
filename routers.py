@@ -11,7 +11,6 @@ inference = Inference()
 @router.post('/predict')
 async def predict_endpoint(request: Text):
     try:
-        # Передаем строку, а не объект
         exported_model_output = inference(request.text)
         return JSONResponse(content={'predicted_tip': exported_model_output})
     except Exception as e:
